@@ -3,10 +3,11 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 
 const User = require('../models/User');
 
-router.get('/', (req, res) => {
+router.get('/', auth, (req, res) => {
     res.send('log a user')
 })
 
