@@ -8,7 +8,7 @@ const auth = require('../middleware/auth');
 const User = require('../models/User');
 
 router.get('/', auth, (req, res) => {
-    res.send('log a user')
+    res.status(200).json({ user: req.user })
 })
 
 router.post('/',
