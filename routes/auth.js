@@ -24,14 +24,19 @@ router.post('/',
         
         const user = await User.findOne({ email })
 
+        const error = {
+            msg: 'Credenziali non valide',
+            location: "body"
+        }
+
         if(!user){
-            return res.status(400).json({ msg: 'Credenziali non valide' });
+            return res.status(400).json({ errors: [error] });
         }
 
         const isMatch = await bcrypt.compare(password, user.password)
 
         if(!isMatch){
-            return res.status(400).json({ msg: 'Credenziali non valide' });
+            return res.status(400).json({ errors: [error] });
         }
 
         const payload = {

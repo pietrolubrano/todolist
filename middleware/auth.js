@@ -5,8 +5,16 @@ module.exports = function(req, res, next) {
     // cattura il token dall'headeer
     const token = req.header('x-auth-token');
 
+    const error = {
+        msg: "Non c'è il token accesso negato",
+    }
+
     if(!token) {
-        return res.status(401).json({ msg: "Non c'è il token accesso negato" })
+        return res.status(401).json({ 
+            errors: [
+                { msg: "Non c'è il token accesso negato" }
+            ]
+        })
     }
 
     try {
@@ -14,6 +22,10 @@ module.exports = function(req, res, next) {
         req.user = decoded.user
         next()
     } catch (err){
-        res.status(401).json({ msg: 'Token non valido' })
+        res.status(401).json({ 
+            errors: [
+                { msg: "Token non valido" }
+            ]
+        })
     }
 }
