@@ -12,7 +12,11 @@ const UserSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required:true
+        required: true
+    },
+    workspacesIds: {
+        type: Array,
+        default: []
     }
 }, { timestamps: true })
 
