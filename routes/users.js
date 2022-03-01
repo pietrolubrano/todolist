@@ -40,7 +40,9 @@ router.post('/',
             .then(user => {
                 const payload = {
                     user: {
-                        id: user.id
+                        id: user.id,
+                        email: user.email,
+                        name: user.name
                     }
                 }
                 jwt.sign(
@@ -48,7 +50,10 @@ router.post('/',
                     { expiresIn: 3600 },
                     ( err, token ) => {
                         if(err) throw err;
-                        res.json({ token })
+                        res.json({ 
+                            token,
+                            user: payload.user
+                        })
                     }
                 )
             })

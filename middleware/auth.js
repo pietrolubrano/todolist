@@ -7,9 +7,9 @@ module.exports = function(req, res, next) {
 
     if(!token) {
         return res.status(401).json({ msg: "Non c'è il token accesso negato" })
-    } 
+    }
 
-    try{
+    try {
         const decoded = jwt.verify(token, process.env.JWTSECRET)
         req.user = decoded.user
         next()
