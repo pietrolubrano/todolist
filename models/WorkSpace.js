@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const WorkSpaceSchema = mongoose.Schema({
+    admin: mongoose.ObjectId,
     name: {
         type: String,
         required: true
@@ -8,6 +9,7 @@ const WorkSpaceSchema = mongoose.Schema({
     lists: {
         type: Array,
         required:true,
+        default: []
     }
 }, { timestamps: true })
 

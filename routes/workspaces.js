@@ -5,14 +5,16 @@ const auth = require('../middleware/auth');
 const WorkSpace = require('../models/Workspace');
 const User = require('../models/User');
 
-router.get('/', auth, (req, res) => {
-    res.status(200).json({ user: req.user })
+router.get('/', auth, async (req, res) => {
+    const workspaces = await WorkSpace.find({ admin: req.user.id })
+
+    res.status(200).json({ workspaces })
 })
 
 router.post('/create', auth, async (req, res) => {
     const { name, lists } = req.body
 
-    const workspace = await WorkSpace.create({ name, lists })
+    const workspace = await WorkSpace.create({ admin: req.user.id ,name, lists })
 
     User.findByIdAndUpdate(
         req.user.id,
