@@ -24,6 +24,7 @@ app.use(express.json({ extended: false }))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/users', require('./routes/users'))
 app.use('/api/workspaces', require('./routes/workspaces'))
+app.use('/api/workspace', require('./routes/workspace'))
 
 app.get('/', (req, res) => {
     console.log('request')

@@ -6,9 +6,10 @@ const WorkSpace = require('../models/Workspace');
 const User = require('../models/User');
 
 router.get('/', auth, async (req, res) => {
+
     const workspaces = await WorkSpace.find({ admin: req.user.id })
 
-    res.status(200).json({ workspaces })
+    res.status(200).json(workspaces)
 })
 
 router.post('/create', auth, async (req, res) => {
@@ -27,23 +28,6 @@ router.post('/create', auth, async (req, res) => {
     )
     
     /* CANCELLARE WORKSPACE SE FALLISCE CREAZIONE ? */
-})
-
-router.post('/update', auth, async (req, res) => {
-    
-    const { id, lists } = req.body
-
-    WorkSpace.findByIdAndUpdate(
-        id,
-        { $set: { lists: lists } },
-        { new: true }
-    )
-    .then( workspace => res.json({ msg: 'updated' }))
-    .catch( err => res.json({ errors: [
-            { msg: 'Impossibile salvare' }
-        ]})
-    )
-
 })
 
 module.exports = router
