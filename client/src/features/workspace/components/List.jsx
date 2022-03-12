@@ -5,7 +5,7 @@ import { deleteList, saveWorkspace } from '../workspaceSlice';
 import NewTodo from './NewTodo';
 import Todo from './Todo';
 
-import styles from '../Workspace.module.css'
+import styles from '../Workspace.module.css';
 
 export default function List ({ list, listIndex }){
     const dispatch = useDispatch()
@@ -21,7 +21,7 @@ export default function List ({ list, listIndex }){
             <div className={styles.list}>
 
                 <div className={styles.listName}>
-                    <span className='m-0'>{list.name}</span>
+                    <span className='text-uppercase'>{list.name}</span>
                     <button 
                         className={styles.deleteListButton}
                         onClick={() => handleDeleteList()}

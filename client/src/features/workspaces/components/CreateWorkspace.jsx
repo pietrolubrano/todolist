@@ -1,15 +1,12 @@
 import { useState } from 'react';
-
 import { useDispatch } from 'react-redux';
-
-/* import { api } from '../api'; */
 
 import { createWorkspace } from '../../workspace/workspaceSlice';
 
-import { Row, Col, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
+import { Col, Form, Button } from 'react-bootstrap';
 import styles from '../Workspaces.module.css';
 
 export default function CreateWorkspace(){
@@ -30,7 +27,7 @@ export default function CreateWorkspace(){
     return(
         add ? 
 
-            <Form onSubmit={handleSubmit} className="text-success w-75" autoComplete='off'>
+            <Form onSubmit={handleSubmit} autoComplete='off'>
 
                 <Form.Group as={Col} className={styles.formgroup} controlId="formCreateWorkspace">
                     <Form.Control
@@ -42,21 +39,20 @@ export default function CreateWorkspace(){
                     />
                 </Form.Group>
                         
-                <Button type="submit"/*  variant="outline-success"  */className={styles.addWorkspaceButton} >
+                <Button type="submit" className={styles.addWorkspaceFormButton} >
                     <FontAwesomeIcon icon={faCirclePlus} />
                 </Button>
 
             </Form>
 
         :
+
             <Button
-                className='h-100 w-100 text-uppercase border-0'
-                variant='outline-success'
+                className={styles.addWorkspaceButton}
                 onClick={() => setAdd(true)}
             >
                 <FontAwesomeIcon icon={faCirclePlus} size="3x" />
             </Button>
-                
     
     )
 }

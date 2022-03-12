@@ -18,32 +18,36 @@ export default function Home(){
 
     useEffect(() => {
         dispatch(getWorkspaces())
-    }, [])
+    }, [dispatch])
 
-    return(
+    return(<>
+
+        <Container fluid className="p-0">
+
+            <div className={styles.header}>
+                <h4 className="m-0">Workspaces</h4>
+            </div>
+
+        </Container>
+
         <Container fluid>
             <Row className='mt-3'>
                 
-                    {
-                        workspaces.list.map( workspace => 
-
-                            <Col key={workspace._id} className={styles.workspaceCard} md={4} lg={3}>
-                                <Col  className='rounded rounded-lg text-center h-100 d-flex justify-content-center align-items-center'>
-
-                                    <Link
-                                        className='btn btn-outline-success h-100 w-100 text-uppercase d-flex align-items-center justify-content-center'
-                                        to={workspace.name}
-                                    >
-                                        <h3 className='mb-0'>{workspace.name}</h3>
-                                    </Link>
-
-                                </Col>
-                           </Col>
-                        )
-                    }
+                {
+                    workspaces.list.map( workspace => 
+                        <Col key={workspace._id} className={styles.workspaceCard} md={4} lg={3}>
+                            <Link
+                                className={`btn ${styles.workspaceButton}`}
+                                to={`/${workspace.name}`}
+                            >
+                                <h3 className='mb-0'>{workspace.name}</h3>
+                            </Link>
+                        </Col>
+                    )
+                }
 
                 <Col className={styles.workspaceCard} md={4} lg={3}>
-                     <Col className='rounded rounded-lgtext-center h-100 border border-success d-flex justify-content-center align-items-center'>
+                     <Col className='rounded rounded-lg text-center h-100 border border-success d-flex justify-content-center align-items-center'>
                 
                         <CreateWorkspace />
                 
@@ -52,5 +56,5 @@ export default function Home(){
 
             </Row>
         </Container>
-    )
+    </>)
 }

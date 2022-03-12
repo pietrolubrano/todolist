@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import {
+    getWorkspaces,
+    selectWorkspaces
+} from '../workspaces/workspacesSlice';
 
 import {
     getWorkspace,
@@ -10,19 +15,23 @@ from './workspaceSlice';
 import List from "./components/List";
 import NewList from "./components/NewList";
 
-import { Container, Row, Col } from 'react-bootstrap';
-import styles from './Workspace.module.css'
+import { Container, Row, Col, Dropdown } from 'react-bootstrap';
+import styles from './Workspace.module.css';
 
 export default function Workspace(){
+
     const workspace = useSelector(selectWorkspace)
+    const workspaces = useSelector(selectWorkspaces)
 
     const dispatch = useDispatch()
 
+    let navigate = useNavigate()
     let { workspaceName } = useParams()
 
     useEffect(() => {
+        dispatch(getWorkspaces())
         dispatch(getWorkspace(workspaceName))
-    }, [])
+    }, [dispatch, workspaceName])
 
     if(workspace.status === 'pending'){
         return (
@@ -55,11 +64,38 @@ export default function Workspace(){
     }
 
     return(<>
-        <Container fluid className="p-0">
+        <Container fluid>
 
-            <div className={styles.header}>
-                <h4 className="m-0">{workspace.name}</h4>
-            </div>
+            <Row className={styles.header}>
+
+                <Col>
+
+                    <Dropdown>
+                        <Dropdown.Toggle
+                            className={styles.dropdownButton}
+                            variant="success"
+                            id="dropdown-workspaces"
+                        >
+                            {workspace.name}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu className={styles.dropdownMenu}>
+                            {
+                                workspaces.list.map( workspacesList => 
+                                    <Dropdown.Item
+                                        key={workspacesList._id}
+                                        className={`${styles.dropdownItem} ${workspacesList.name === workspace.name && styles.dropdownItemActive}`}
+                                        onClick={() => navigate(`/${workspacesList.name}`)}
+                                    >
+                                        {workspacesList.name}
+                                    </Dropdown.Item>
+                                )
+                            }
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Col>
+                
+            </Row>
 
         </Container>
 

@@ -6,6 +6,8 @@
 }
 
 .header {
+    display: flex;
+    align-items: center;
     background-color: green;
     padding: 25px;
     color: white;
@@ -18,20 +20,25 @@
     width: 250px;
     margin: 10px;
     margin-top: 10px;
-    overflow: hidden;
+    font-weight: bold;
 }
 
 .list {
     border: 1px solid green;
-    border-radius: 15px;
+    border-radius: 5px;
     overflow: auto;
+    transition: 0.2s;
+}
+
+.list:hover {
+    box-shadow: -5px 5px 10px 0px #000000a5;
+    transition: 0.2s;
 }
 
 .listName {
     padding: 20px;
     background-color: green;
     color: white;
-    /* display: flex; */
 }
 
 .newList {
@@ -45,22 +52,26 @@
 .deleteListButton{
     float: right;
     background-color: transparent;
-    border: 1px solid transparent;
-    color: rgba(220, 220, 220, 0.7);
+    border: none !important;
+    color: white;
     position: relative;
-    bottom: 20px;
-    left: 15px;
+    bottom: 18px;
+    left: 10px;
+    padding: 0px !important;
+}
+
+.deleteListButton:hover{
+    color: red !important;
 }
 
 .todo {
     display: flex;
     width: 100%;
-    /* padding: 10px; */
-    border: 2px solid transparent !important;
-    border-radius: 0px !important;
-    background-color: transparent !important;
-    /* color: black !important; */
-    text-align: left !important;
+}
+
+.todoNotDone:hover {
+    background-color: #e9ecef !important;
+    color: black !important;
 }
 
 .todoDone {
@@ -68,20 +79,28 @@
    color: white !important;
 }
 
-.todoNotDone{
+.todoNotDone {
     background-color: white !important;
     color: black !important;
+}
+
+.todoNotDone:hover > button > div.checkUnDone::after {
+    content: '✓' !important;
+    position: relative;
+    color: black;
+    left: -14px;
 }
 
 .todoButton {
     display: flex;
     width: 100%;
-    padding: 10px;
+    padding: 0px 20px !important;
     border: 2px solid transparent !important;
     border-radius: 0px !important;
     background-color: transparent !important;
     color: inherit !important;
     text-align: left !important;
+    align-items: center !important;
 }
 
 .todoDeleteButton {
@@ -93,14 +112,14 @@
     text-align: left !important;
 }
 
-.square {
-    max-width: 14px;
-    margin-right: 10px;
+.todoDeleteButton:hover {
+    color: red !important;
+    text-shadow: -5px 5px 10px 0px #000000a5 !important;
 }
 
-.todoTitleDone {
-    text-decoration: line-through;
-    color: white !important;
+.checkDone {
+    max-width: 14px;
+    margin-right: 10px;
 }
 
 .checkDone::after {
@@ -110,13 +129,23 @@
     left: -14px;
 }
 
+.checkUnDone {
+    max-width: 14px;
+    margin-right: 10px;
+}
+
+.todoTitleDone {
+    text-decoration: line-through;
+    color: white !important;
+}
+
 .form {
     border-top: 1px solid green;
 }
 
 .formgroup {
-    width: 100%;
-    padding: 15px;
+    text-align: center !important;
+    padding: 5px 20px;
 }
 
 .formcontrol {
@@ -129,20 +158,53 @@
 
 .addListButton {
     width: 100%;
-    background-color: green !important;
-    color: white !important;
+    background-color: white !important;
+    color: green !important;
     font-size: 1.5em !important;
     border: none !important;
-    border-radius: 15px !important;
+}
+
+.addListButton:hover {
+    background-color: green !important;
+    color: white !important;
 }
 
 .addTodoButton {
     width: 100%;
-    background-color: green !important;
-    color: white !important;
+    background-color: white !important;
+    color: green !important;
     font-size: 1.5em !important;
     border: none !important;
     border-radius: 0px !important;
+    border-top: 1px solid green !important;
+}
+
+.addTodoButton:hover {
+    background-color: green !important;
+    color: white !important;
+}
+
+.dropdownButton {
+    background-color: green !important;
+    border: none !important;
+    padding: 0px !important;
+    text-transform: uppercase !important;
+    font-size: large !important;
+    font-weight: bold !important;
+}
+
+.dropdownButton::hover {
+    background-color: green;
+}
+
+.dropdownItem:active {
+    background-color: green !important;
+    color: white !important;
+}
+
+.dropdownItemActive {
+    background-color: green !important;
+    color: white !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -153,8 +215,8 @@
     }
 
     .listContainer {
-        min-width: 95vw;
-        margin-left: 2.5vw;
+        min-width: 90vw;
+        margin: 25px 5vw;
     }
 
     .formcontrol {
@@ -170,4 +232,16 @@
         display: block !important;
     }
 
+    .dropdownMenu{
+        width: 100% !important;
+        margin-top: 10px !important;
+    }
+
+    .dropdownButton {
+        width: 100%;
+    }
+
+    .todoNotDone:hover > button > div.checkUnDone::after {
+        content: '' !important;
+    }
 }

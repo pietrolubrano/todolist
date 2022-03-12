@@ -6,7 +6,7 @@ import { addToDo, saveWorkspace } from '../workspaceSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Col, Button } from 'react-bootstrap';
 import styles from '../Workspace.module.css'
 
 export default function NewTodo({ listIndex }){
@@ -27,7 +27,6 @@ export default function NewTodo({ listIndex }){
         <Form onSubmit={handleSubmit} className={styles.form} autoComplete="off" >
 
             <Form.Group as={Col} className={styles.formgroup} controlId="formAddTodo">
-                {/* <Form.Label>Crea nuova lista</Form.Label> */}
                 <Form.Control
                     className={styles.formcontrol}
                     type="text"

@@ -26,7 +26,7 @@ export default function Todo({ todo, index, listIndex }){
                 className={`d-flex ${styles.todoButton}`}
                 onClick={() => handleClick()}
             >   
-                <div className={`${styles.square} ${todo.isDone && styles.checkDone}`}>
+                <div className={todo.isDone ? styles.checkDone : styles.checkUnDone}>
                     ▢
                 </div>
                 <div className={todo.isDone ? styles.todoTitleDone : ''}>
