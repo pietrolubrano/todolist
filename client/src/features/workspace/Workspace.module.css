@@ -1,0 +1,173 @@
+.container {
+    display: flex;
+    padding: 10px !important;
+    height: 100% !important;
+    overflow-x: scroll;
+}
+
+.header {
+    background-color: green;
+    padding: 25px;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.4);
+}
+
+.listContainer {
+    min-width: 250px;
+    width: 250px;
+    margin: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.list {
+    border: 1px solid green;
+    border-radius: 15px;
+    overflow: auto;
+}
+
+.listName {
+    padding: 20px;
+    background-color: green;
+    color: white;
+    /* display: flex; */
+}
+
+.newList {
+    width: 100%;
+    padding: 20px;
+    background-color: green;
+    color: white;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.deleteListButton{
+    float: right;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: rgba(220, 220, 220, 0.7);
+    position: relative;
+    bottom: 20px;
+    left: 15px;
+}
+
+.todo {
+    display: flex;
+    width: 100%;
+    /* padding: 10px; */
+    border: 2px solid transparent !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    /* color: black !important; */
+    text-align: left !important;
+}
+
+.todoDone {
+   background-color: green !important;
+   color: white !important;
+}
+
+.todoNotDone{
+    background-color: white !important;
+    color: black !important;
+}
+
+.todoButton {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid transparent !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    color: inherit !important;
+    text-align: left !important;
+}
+
+.todoDeleteButton {
+    padding: 10px;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border: 2px solid transparent !important;
+    color: inherit !important;
+    text-align: left !important;
+}
+
+.square {
+    max-width: 14px;
+    margin-right: 10px;
+}
+
+.todoTitleDone {
+    text-decoration: line-through;
+    color: white !important;
+}
+
+.checkDone::after {
+    content: '✓' !important;
+    position: relative;
+    color: white;
+    left: -14px;
+}
+
+.form {
+    border-top: 1px solid green;
+}
+
+.formgroup {
+    width: 100%;
+    padding: 15px;
+}
+
+.formcontrol {
+    width: 100%;
+    border: 1px solid transparent !important;
+    border-bottom: 1px solid green !important;
+    background-color: transparent;
+    border-radius: 0px !important;
+}
+
+.addListButton {
+    width: 100%;
+    background-color: green !important;
+    color: white !important;
+    font-size: 1.5em !important;
+    border: none !important;
+    border-radius: 15px !important;
+}
+
+.addTodoButton {
+    width: 100%;
+    background-color: green !important;
+    color: white !important;
+    font-size: 1.5em !important;
+    border: none !important;
+    border-radius: 0px !important;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .container {
+        display: block;
+        padding: 0px !important;
+    }
+
+    .listContainer {
+        min-width: 95vw;
+        margin-left: 2.5vw;
+    }
+
+    .formcontrol {
+        border: none !important;
+        padding: 10px 40px !important;
+    }
+
+    .formgroup {
+        padding: 5px;
+    }
+
+    .addButton {
+        display: block !important;
+    }
+
+}

@@ -1,0 +1,25 @@
+.formgroup {
+    width: 100%;
+}
+
+.formcontrol {
+    /* border: 1px solid transparent !important; */
+    /* border-bottom: 1px solid green !important; */
+    border-radius: 5px 5px 0px 0px !important;
+    background-color: transparent;
+    border-radius: 0px !important;
+}
+
+.workspaceCard{
+    /* padding: 30px !important; */
+    min-height: 150px;
+    margin-bottom: 15px;
+}
+
+.addWorkspaceButton{
+    width: 100%;
+    background-color: green !important;
+    color: white;
+    border-radius: 0px 0px 5px 5px !important;
+    border: none !important;
+}
