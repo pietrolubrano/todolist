@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv').config()
 
 module.exports = function(req, res, next) {
     // cattura il token dall'headeer
