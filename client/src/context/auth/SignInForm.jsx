@@ -1,12 +1,8 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 
-import Form from 'react-bootstrap/Form';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Form, Button } from 'react-bootstrap';
 import styles from './Auth.module.css';
 
 export default function SignInForm(){
@@ -28,7 +24,7 @@ export default function SignInForm(){
                 <Form.Group className="mb-3">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
-                        className='custom-form-input'
+                        className='custom-form-input text-lowercase'
                         type="email"
                         placeholder="Enter email"
                         value={email}

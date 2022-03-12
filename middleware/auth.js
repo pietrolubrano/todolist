@@ -4,10 +4,6 @@ module.exports = function(req, res, next) {
     // cattura il token dall'headeer
     const token = req.header('x-auth-token');
 
-    const error = {
-        msg: "Non c'è il token accesso negato",
-    }
-
     if(!token) {
         return res.status(401).json({ 
             errors: [

@@ -2,7 +2,6 @@ import { useState, useContext } from 'react';
 import { AuthContext } from './AuthContext';
 
 import { Form, Button } from 'react-bootstrap';
-
 import styles from './Auth.module.css';
 
 export default function RegisterForm(){
@@ -47,7 +46,7 @@ export default function RegisterForm(){
                 <Form.Group controlId="formRegisterEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
-                        className='mb-2'
+                        className='mb-2 text-lowercase'
                         type="text"
                         placeholder="johndoe@domain.com"
                         value={email}
