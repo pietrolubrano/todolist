@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from 'react';
 import { api } from '../../api';
 
+import { Container, Row, Col } from 'react-bootstrap';
+
 export const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
@@ -70,7 +72,19 @@ export const AuthProvider = ({ children }) => {
     },[])
 
     if(pending){
-        return <>Loading...</>
+        return (
+            <Container fluid className="h-100 w-100 p-0">
+
+                <Row className="h-100 w-100 m-0">
+                    <Col className="text-center m-auto display-4 text-success">
+                        <div className="spinner-grow" style={{ width: "3rem", height: "3rem" }} role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </Col>
+                </Row>
+
+            </Container>
+        )
     }
 
     return (
