@@ -10,16 +10,16 @@ export default function Home(){
     let navigate = useNavigate()
 
     return(<>
-        <Container className={`${styles.header} text-light mb-3 mb-md-5`} fluid>
-            <Row className={`${styles.headerRow} py-5`}>
-                <Col xs={12} sm={8} md={6} lg={6} className="ms-2 ms-md-5 mx-auto">
+        <Container className={`${styles.header} text-light mb-4`} fluid>
+            <Row className={`${styles.headerRow}`}>
+                <Col xs={12} sm={8} md={6} lg={6} className="p-4 p-sm-5 ms-md-5">
                     <h1 className="fw-light">Todo List</h1>
                     <p className="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe libero aut, fugiat ipsum iure impedit. Maxime, ea! Expedita, veritatis culpa est ducimus fugit cupiditate earum quos harum beatae soluta tempora!</p>
                 </Col>
             </Row>  
         </Container>
 
-        <Container className='mb-3 mb-md-5'>
+        <Container className='mb-2'>
             <Row>
                 
                 <Col md={4} className="mb-3">
