@@ -10,7 +10,7 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 app.use(cors({
-    origin: '*',
+    origin: process.env.FRONT_END_URL,
     optionsSuccessStatus: 200 // For legacy browser support
 }))
 
