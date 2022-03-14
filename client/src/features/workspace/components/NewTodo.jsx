@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 import { Form, Col, Button } from 'react-bootstrap';
-import styles from '../Workspace.module.css'
+import styles from '../Workspace.module.css';
 
 export default function NewTodo({ listIndex, test }){
     const [title, setTitle]= useState('')
@@ -25,6 +25,7 @@ export default function NewTodo({ listIndex, test }){
             setTitle('')
         }
     }
+    
     return(
         <Form onSubmit={handleSubmit} className={styles.form} autoComplete="off" >
 
@@ -39,8 +40,9 @@ export default function NewTodo({ listIndex, test }){
             </Form.Group>
             
             <Button type="submit" variant="outline-success" className={styles.addTodoButton} >
-                <FontAwesomeIcon icon={faCirclePlus} /* size="2x" */ />
+                <FontAwesomeIcon icon={faCirclePlus} />
             </Button>
+
         </Form>
     )
 }
