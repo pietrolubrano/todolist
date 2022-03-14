@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
         .catch(err => {
             console.error(err.response.data.msg)
             setPending(false)
+            localStorage.removeItem('token')
             handleErrors(err.response.data.errors)
         })
     }

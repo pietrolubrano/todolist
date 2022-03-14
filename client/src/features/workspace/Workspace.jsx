@@ -4,11 +4,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import {
     getWorkspaces,
+    setWorkspaces,
     selectWorkspaces
 } from '../workspaces/workspacesSlice';
 
 import {
     getWorkspace,
+    setWorkspace,
     selectWorkspace } 
 from './workspaceSlice';
 
@@ -18,8 +20,7 @@ import NewList from "./components/NewList";
 import { Container, Row, Col, Dropdown } from 'react-bootstrap';
 import styles from './Workspace.module.css';
 
-export default function Workspace(){
-
+export default function Workspace({ test }){
     const workspace = useSelector(selectWorkspace)
     const workspaces = useSelector(selectWorkspaces)
 
@@ -29,8 +30,28 @@ export default function Workspace(){
     let { workspaceName } = useParams()
 
     useEffect(() => {
-        dispatch(getWorkspaces())
-        dispatch(getWorkspace(workspaceName))
+        if(!test){
+            dispatch(getWorkspaces())
+            dispatch(getWorkspace(workspaceName))
+        } else {
+            dispatch(setWorkspaces([
+                {
+                    _id:"test",
+                    admin:"test",
+                    name:"Test Workspace",
+                    createdAt:"2022-03-06T17:09:47.853Z",
+                    updatedAt:"2022-03-14T14:42:57.329Z",
+                    __v:0
+                }
+            ]))
+            dispatch(setWorkspace(
+                { 
+                    _id: 'testing',
+                    name: 'Test Workspace',
+                    lists: []
+                }
+            ))
+        }
     }, [dispatch, workspaceName])
 
     if(workspace.status === 'pending'){
@@ -101,9 +122,11 @@ export default function Workspace(){
 
         <Container fluid className={styles.container}>
                 
-            { workspace.lists.map( (list, index) => <List key={index} list={list} listIndex={index} />) }
+            { workspace.lists.map( (list, index) => 
+                <List key={index} list={list} listIndex={index} test={test} />
+            ) }
 
-            <NewList />
+            <NewList test={test}/>
 
         </Container>
     </>)

@@ -9,7 +9,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { Form, Col, Button } from 'react-bootstrap';
 import styles from '../Workspace.module.css'
 
-export default function NewTodo({ listIndex }){
+export default function NewTodo({ listIndex, test }){
     const [title, setTitle]= useState('')
 
     const dispatch = useDispatch()
@@ -19,7 +19,9 @@ export default function NewTodo({ listIndex }){
         setTitle(title.trim())
         if(title){
             dispatch(addToDo({ listIndex, title }))
-            dispatch(saveWorkspace())
+            if(!test){
+                dispatch(saveWorkspace())
+            }
             setTitle('')
         }
     }

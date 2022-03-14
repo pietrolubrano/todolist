@@ -56,6 +56,12 @@ function App() {
             </RequireAuth>
           }/>
 
+          <Route path="/workspacetest" element={
+            <NotLoggedUser>
+              <Workspace test={true}/>
+            </NotLoggedUser>
+          }/>
+
           <Route path="*" element={
              'Not found'
           }/>

@@ -49,7 +49,6 @@ export const workspaceSlice = createSlice({
         },
         creteNewList: (state, { payload }) => {
             const { name } = payload
-            console.log('CREATE NEW LIST', name)
             const newList = {
                 name: name,
                 todos: []

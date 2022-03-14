@@ -7,12 +7,14 @@ import Todo from './Todo';
 
 import styles from '../Workspace.module.css';
 
-export default function List ({ list, listIndex }){
+export default function List ({ list, listIndex, test }){
     const dispatch = useDispatch()
 
     const handleDeleteList = () => {
         dispatch(deleteList({ listIndex }))
-        dispatch(saveWorkspace())
+        if(!test){
+            dispatch(saveWorkspace())
+        }
     }
 
     return(
@@ -36,11 +38,11 @@ export default function List ({ list, listIndex }){
                         todo={todo}
                         index={index}
                         listIndex={listIndex}
-
+                        test={test}
                     />
                 ) }
 
-                <NewTodo listIndex={listIndex}/>
+                <NewTodo listIndex={listIndex} test={test}/>
                 
             </div>
 

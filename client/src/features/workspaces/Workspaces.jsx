@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
-import { getWorkspaces, selectWorkspaces } from './workspacesSlice';
+import { getWorkspaces, setWorkspaces, selectWorkspaces } from './workspacesSlice';
 import CreateWorkspace from './components/CreateWorkspace';
 
 import { Container, Row, Col } from 'react-bootstrap';

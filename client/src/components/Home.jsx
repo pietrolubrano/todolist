@@ -1,13 +1,14 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
-
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGears, faCheck } from '@fortawesome/free-solid-svg-icons';
-
 import styles from './Home.module.css';
 
 export default function Home(){
+    let navigate = useNavigate()
+
     return(<>
         <Container className={`${styles.header} text-light mb-3 mb-md-5`} fluid>
             <Row className={`${styles.headerRow} py-5`}>
@@ -18,7 +19,7 @@ export default function Home(){
             </Row>  
         </Container>
 
-        <Container>
+        <Container className='mb-3 mb-md-5'>
             <Row>
                 
                 <Col md={4} className="mb-3">
@@ -59,6 +60,20 @@ export default function Home(){
                     </div>
                 </Col>
 
+            </Row>
+        </Container>
+
+        <Container className="text-success mb-3 mb-md-5 bg-light" fluid>
+            <Row className='py-5 text-center'>
+                <Col>
+                    <h3>Fai una prova!</h3>
+                    <Button
+                        variant='outline-success'
+                        onClick={() => navigate("/workspacetest")}
+                    >
+                        Testing Area
+                    </Button>
+                </Col>
             </Row>
         </Container>
     </>)

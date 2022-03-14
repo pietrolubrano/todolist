@@ -9,7 +9,7 @@ import styles from '../Workspace.module.css'
 
 import { creteNewList, saveWorkspace } from '../workspaceSlice';
 
-export default function NewList() {
+export default function NewList({ test }) {
     const [add, setAdd] = useState(false)
     const [name, setName] = useState('')
     const dispatch = useDispatch()
@@ -17,7 +17,9 @@ export default function NewList() {
     const handleSubmit = (event) => {
         event.preventDefault()
         dispatch(creteNewList({ name }))
-        dispatch(saveWorkspace())
+        if(!test){
+            dispatch(saveWorkspace())
+        }
         setName('')
         setAdd(false)
     }

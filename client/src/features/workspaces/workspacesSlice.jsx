@@ -18,7 +18,7 @@ export const workspacesSlice = createSlice({
     initialState,
     reducers: {
         setWorkspaces: (state, { payload }) => {
-            state = payload
+            state.list = payload
         },
     },
     extraReducers: {

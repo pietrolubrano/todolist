@@ -5,18 +5,22 @@ import { toggleTodoStatus, saveWorkspace, deleteTodo } from '../workspaceSlice'
 import { Button } from 'react-bootstrap';
 import styles from '../Workspace.module.css';
 
-export default function Todo({ todo, index, listIndex }){
+export default function Todo({ todo, index, listIndex, test }){
 
     const dispatch = useDispatch()
 
     const handleClick = () => {
         dispatch(toggleTodoStatus({ status: !todo.isDone, index, listIndex }))
-        dispatch(saveWorkspace())
+        if(!test){
+            dispatch(saveWorkspace())
+        }
     }
 
     const handleDeleteTodo = () => {
         dispatch(deleteTodo({ index, listIndex }))
-        dispatch(saveWorkspace())
+        if(!test){
+            dispatch(saveWorkspace())
+        }
     }
 
     return(
