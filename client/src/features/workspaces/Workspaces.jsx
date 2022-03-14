@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
-
-import { getWorkspaces, selectWorkspaces } from './workspacesSlice';
-
-import CreateWorkspace from './components/CreateWorkspace';
-import { Container, Row, Col } from 'react-bootstrap';
-
 import { useDispatch, useSelector } from 'react-redux';
-
-
 import { Link } from "react-router-dom";
 
+import { getWorkspaces, selectWorkspaces } from './workspacesSlice';
+import CreateWorkspace from './components/CreateWorkspace';
+
+import { Container, Row, Col } from 'react-bootstrap';
 import styles from './Workspaces.module.css';
 
 export default function Home(){
@@ -38,7 +34,7 @@ export default function Home(){
                         <Col key={workspace._id} className={styles.workspaceCard} md={4} lg={3}>
                             <Link
                                 className={`btn ${styles.workspaceButton}`}
-                                to={`/${workspace.name}`}
+                                to={workspace.name}
                             >
                                 <h3 className='mb-0'>{workspace.name}</h3>
                             </Link>

@@ -85,7 +85,7 @@ export default function Workspace(){
                                     <Dropdown.Item
                                         key={workspacesList._id}
                                         className={`${styles.dropdownItem} ${workspacesList.name === workspace.name && styles.dropdownItemActive}`}
-                                        onClick={() => navigate(`/${workspacesList.name}`)}
+                                        onClick={() => navigate(`/workspaces/${workspacesList.name}`)}
                                     >
                                         {workspacesList.name}
                                     </Dropdown.Item>

@@ -8,6 +8,7 @@ import { AuthProvider } from './context/auth/AuthContext';
 import MyNavbar from "./components/MyNavbar";
 import Home from "./components/Home";
 import Workspace from "./features/workspace/Workspace";
+import Workspaces from './features/workspaces/Workspaces';
 import SignInForm from "./context/auth/SignInForm";
 import RegisterForm from "./context/auth/RegisterForm";
 import ServerErrorsAlert from "./components/ServerErrorsAlert";
@@ -28,15 +29,7 @@ function App() {
         <Routes>
 
           <Route path="/" element={
-            <RequireAuth>
               <Home />
-            </RequireAuth>
-          }/>
-
-          <Route path="/:workspaceName" element={
-            <RequireAuth>
-              <Workspace />
-            </RequireAuth>
           }/>
 
           <Route path="/signin" element={
@@ -49,6 +42,18 @@ function App() {
             <NotLoggedUser>
               <RegisterForm />
             </NotLoggedUser>
+          }/>
+
+          <Route path="/workspaces" element={
+            <RequireAuth>
+              <Workspaces />
+            </RequireAuth>
+          }/>
+
+          <Route path="/workspaces/:workspaceName" element={
+            <RequireAuth>
+              <Workspace />
+            </RequireAuth>
           }/>
 
           <Route path="*" element={

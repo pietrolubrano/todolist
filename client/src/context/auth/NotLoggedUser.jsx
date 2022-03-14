@@ -10,7 +10,7 @@ export default function NotLoggedUser({ children }) {
     let location = useLocation();
   
     if (currentUser) {
-      return <Navigate to="/" state={{ from: location }} replace />;
+      return <Navigate to="/workspaces" state={{ from: location }} replace />;
     }
   
     return children;

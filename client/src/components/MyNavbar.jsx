@@ -17,7 +17,6 @@ export default function MyNavbar(){
 
                 <Link className='navbar-brand' to="/">
                     <FontAwesomeIcon icon={faListCheck} className="me-2 text-success" />
-                    My ToDo List
                 </Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
 
