@@ -36,7 +36,7 @@
 }
 
 .listName {
-    padding: 20px;
+    padding: 20px 15px;
     background-color: green;
     color: white;
 }
@@ -55,8 +55,8 @@
     border: none !important;
     color: white;
     position: relative;
-    bottom: 18px;
-    left: 10px;
+    bottom: 20px;
+    left: 8px;
     padding: 0px !important;
 }
 
@@ -67,6 +67,7 @@
 .todo {
     display: flex;
     width: 100%;
+    padding: 5px 0px 5px 10px;
 }
 
 .todoNotDone:hover {
@@ -94,17 +95,18 @@
 .todoButton {
     display: flex;
     width: 100%;
-    padding: 0px 20px !important;
+    /* padding: 0px 20px !important; */
     border: 2px solid transparent !important;
     border-radius: 0px !important;
     background-color: transparent !important;
     color: inherit !important;
     text-align: left !important;
     align-items: center !important;
+    padding: 0px !important;
 }
 
 .todoDeleteButton {
-    padding: 10px;
+    padding: 0px 10px !important;
     border-radius: 0px !important;
     background-color: transparent !important;
     border: 2px solid transparent !important;
@@ -134,6 +136,10 @@
     margin-right: 10px;
 }
 
+.todoTitle {
+    word-break: keep-all;
+}
+
 .todoTitleDone {
     text-decoration: line-through;
     color: white !important;
@@ -145,7 +151,7 @@
 
 .formgroup {
     text-align: center !important;
-    padding: 5px 20px;
+    padding: 10px 15px;
 }
 
 .formcontrol {
@@ -162,6 +168,7 @@
     color: green !important;
     font-size: 1.5em !important;
     border: none !important;
+    padding: 13px !important;
 }
 
 .addListButton:hover {
@@ -221,11 +228,6 @@
 
     .formcontrol {
         border: none !important;
-        padding: 10px 40px !important;
-    }
-
-    .formgroup {
-        padding: 5px;
     }
 
     .addButton {

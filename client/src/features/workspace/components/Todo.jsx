@@ -33,7 +33,7 @@ export default function Todo({ todo, index, listIndex, test }){
                 <div className={todo.isDone ? styles.checkDone : styles.checkUnDone}>
                     ▢
                 </div>
-                <div className={todo.isDone ? styles.todoTitleDone : ''}>
+                <div className={`${styles.todoTitle} ${todo.isDone && styles.todoTitleDone}`}>
                     { todo.title }
                 </div>
             </Button>
