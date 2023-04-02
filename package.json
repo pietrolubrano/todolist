@@ -8,9 +8,9 @@
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run server & npm run client",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "netlify-lambda build && npm install --prefix client && npm run build --prefix client"
   },
   "author": "Pietro Lubrano <pietrolubrano86@gmail.com>",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "express-validator": "^6.14.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "serverless-http": "^3.2.0"
   }
 }
