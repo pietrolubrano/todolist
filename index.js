@@ -5,6 +5,10 @@ const path = require('path')
 
 const app = express()
 
+if(process.env.NODE_ENV !== 'production'){
+    const dotenv = require('dotenv').config()
+}
+
 console.log('FE URL', process.env.FRONT_END_URL)
 
 app.use(cors({
@@ -33,7 +37,7 @@ if(process.env.NODE_ENV === 'production'){
 
     const router = app._router
 
-    /* app.use('/.netlify/functions/server', router); */
+    app.use('/.netlify/functions/server', router);
 }
 
 const listener = app.listen(

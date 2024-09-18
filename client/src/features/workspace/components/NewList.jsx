@@ -16,12 +16,14 @@ export default function NewList({ test }) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(creteNewList({ name }))
-        if(!test){
-            dispatch(saveWorkspace())
+        if(name){
+            dispatch(creteNewList({ name }))
+            if(!test){
+                dispatch(saveWorkspace())
+            }
+            setName('')
+            setAdd(false)
         }
-        setName('')
-        setAdd(false)
     }
 
     return (
