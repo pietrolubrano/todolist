@@ -2,13 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const path = require('path')
-const serverless = require('serverless-http');
 
 const app = express()
-
-if(process.env.NODE_ENV !== 'production'){
-    const dotenv = require('dotenv').config()
-}
 
 console.log('FE URL', process.env.FRONT_END_URL)
 
@@ -38,7 +33,7 @@ if(process.env.NODE_ENV === 'production'){
 
     const router = app._router
 
-    app.use('/.netlify/functions/server', router);
+    /* app.use('/.netlify/functions/server', router); */
 }
 
 const listener = app.listen(
@@ -46,5 +41,4 @@ const listener = app.listen(
     () => console.log(`Listening on port: ${listener.address().port}`)
 )
 
-/* module.exports = app; */
-module.exports.handler = serverless(app);
+module.exports = app;
